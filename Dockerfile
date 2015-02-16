@@ -13,7 +13,7 @@ RUN apt-get update
 RUN apt-get -y upgrade
 
 # Basic Requirements
-RUN apt-get -y install mysql-server pwgen python-setuptools curl git unzip
+RUN apt-get -y install curl git unzip
 
 # Install the rest
 RUN git clone --recursive https://github.com/gsn/docker-wordpress.git /docker-wordpress
