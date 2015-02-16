@@ -16,7 +16,11 @@ RUN apt-get -y upgrade
 RUN apt-get -y install mysql-server pwgen python-setuptools curl git unzip
 
 # Install the rest
-RUN chmod +x docker-install
+RUN git clone --recursive https://github.com/gsn/docker-wordpress.git /docker-wordpress
+WORKDIR /docker-wordpress
+RUN chmod +x /docker-wordpress/docker-install
+
+RUN ls -la
 RUN ./docker-install
 
 # Supervisor Config
@@ -24,6 +28,7 @@ RUN /usr/bin/easy_install supervisor
 RUN /usr/bin/easy_install supervisor-stdout
 ADD ./supervisord.conf /etc/supervisord.conf
 
+WORKDIR /
 # Wordpress Initialization and Startup Script
 ADD ./start.sh /start.sh
 RUN chmod 755 /start.sh

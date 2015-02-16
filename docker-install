@@ -1,14 +1,17 @@
 #!/bin/bash
 
-# Include library
-for gsn_include in $(find lib/ -iname "*.sh"); do
-  source $PWD/$gsn_include
-done
-
 CWD=$PWD
 GSN_HOME=$CWD
 GSN_GIT_HOME=$GSN_HOME/gsn-git
 GSN_PHP_USER=www-data
+
+source $CWD/config/gsn_echo.sh
+
+# Include library
+for gsn_include in $(find lib/ -iname "*.sh"); do
+  source $CWD/$gsn_include
+done
+
 
 # Install Common Library
 gsn_install_common
