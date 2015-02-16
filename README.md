@@ -14,13 +14,7 @@ $ sudo docker build -t="docker-wordpress" .
 To spawn a new instance of wordpress on port 80.  The -p 80:8000 maps the internal docker port 8000 to the outside port 80 of the host machine.
 
 ```bash
-$ docker run -v /Users:/mnt/Users -p 80:8000 --name docker-wordpress -d docker-wordpress
-```
-
-Start your newly created docker.
-
-```
-$ docker start docker-wordpress
+$ docker run -v /Users:/mnt/Users -p 80:8000 --name docker-wordpress -i -d docker-wordpress
 ```
 
 After starting the docker-wordpress check to see if it started and the port mapping is correct.  This will also report the port mapping between the docker container and the host machine.
@@ -35,4 +29,10 @@ You can the visit the following URL in a browser on your host machine to get sta
 
 ```
 http://127.0.0.1:80
+```
+
+To enter and inspect your instance, just execute:
+
+```
+$ docker exec -it docker-wordpress /bin/bash
 ```
