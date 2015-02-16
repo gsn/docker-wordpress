@@ -13,7 +13,7 @@ for gsn_include in $(find lib/ -iname "*.sh"); do
 done
 
 # Setup MySQL
-apt-get -y install mysql-server pwgen python-setuptools 
+apt-get -y install mysql-server pwgen python-setuptools nano
 
 # mysql has to be started this way as it doesn't work to call from /etc/init.d
 /usr/bin/mysqld_safe &
