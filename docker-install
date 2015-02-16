@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Include library
+for gsn_include in $(find lib/ -iname "*.sh"); do
+  source $PWD/$gsn_include
+done
+
+CWD=$PWD
+GSN_HOME=$CWD
+GSN_GIT_HOME=$GSN_HOME/gsn-git
+GSN_PHP_USER=www-data
+
+# Install Common Library
+gsn_install_common
+
+# Install PHP
+gsn_install_php
+
+# Run other setups
+gsn_setup_php
+gsn_setup_nginx
+
+# Create sharefs directory structure
+mkdir -p /mnt/sharefs
+ln -s /mnt/Users/Shared/gsn-git-wp-skeleton /mnt/sharefs/wordpress
+mkdir -p /mnt/sharefs/admin/htdocs
+
+# install utils and adminer
+gsn_install_utils
+gsn_install_adminer
+
+# update file structure
+chown -R $GSN_PHP_USER:$GSN_PHP_USER /mnt/sharefs
+# set all folders to 755 and all files to 644
+find /mnt/sharefs/ -type d -exec chmod 755 {} \;
+find /mnt/sharefs/ -type f -exec chmod 644 {} \;
+
+# make sure opcache is enabled
+php5enmod opcache
