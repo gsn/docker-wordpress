@@ -25,7 +25,7 @@ gsn_setup_nginx
 
 # Create sharefs directory structure
 mkdir -p /mnt/sharefs
-ln -s /mnt/Users/Shared/gsn-git-wp-skeleton /mnt/sharefs/wordpress
+ln -s /mnt/Users/Shared/gsn-git/wp-skeleton /mnt/sharefs/wordpress
 mkdir -p /mnt/sharefs/admin/htdocs
 
 # install utils and adminer

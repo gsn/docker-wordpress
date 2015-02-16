@@ -20,13 +20,13 @@ $ docker run -v /Users:/mnt/Users -p 80:8000 --name docker-wordpress -d docker-w
 Start your newly created docker.
 
 ```
-$ sudo docker start docker-wordpress
+$ docker start docker-wordpress
 ```
 
 After starting the docker-wordpress check to see if it started and the port mapping is correct.  This will also report the port mapping between the docker container and the host machine.
 
 ```
-$ sudo docker ps
+$ docker ps
 
 0.0.0.0:80 -> 80/tcp docker-wordpress
 ```
