@@ -10,6 +10,6 @@ if [ ! -d /mnt/Users/Shared/gsn-git/wp-skeleton ]; then
   cp -f wp-skeleton/my-ms-install.php wp-skeleton/htdocs/wp-admin/my-ms-install.php
 fi
 chmod -R u+rwX,go+rX,go-w /mnt/Users/Shared/gsn-git
-service mysql restart
-service php5-fpm restart
-service nginx restart
+
+# start all the services
+/usr/local/bin/supervisord -n
