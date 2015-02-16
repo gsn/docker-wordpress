@@ -12,7 +12,7 @@ for gsn_include in $(find lib/ -iname "*.sh"); do
   source $CWD/$gsn_include
 done
 
-# Setup MySQL previously installed
+# Setup MySQL previously installed in Dockerfile
 # mysql has to be started this way as it doesn't work to call from /etc/init.d
 /usr/bin/mysqld_safe &
 sleep 10s
