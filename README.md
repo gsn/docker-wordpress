@@ -6,7 +6,7 @@ Allow for wordpress local development environment.
 ```
 $ git clone https://github.com/gsn/docker-wordpress.git
 $ cd docker-wordpress
-$ sudo docker build -t="docker-wordpress" .
+$ docker build -t="docker-wordpress" .
 ```
 
 ## Usage
