@@ -60,5 +60,6 @@ chown -R $GSN_PHP_USER:$GSN_PHP_USER /mnt/sharefs
 find /mnt/sharefs/ -type d -exec chmod 755 {} \;
 find /mnt/sharefs/ -type f -exec chmod 644 {} \;
 
+echo 'export TERM=xterm' > ~/.bash_profile
 # make sure opcache is enabled
 php5enmod opcache
